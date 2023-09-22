@@ -1,12 +1,11 @@
-public class Printer{
+class Printer {
     public static void main(String[] args) {
         int n = 0;
 
         if (args.length == 0) {
             // При отправке кода на Выполнение, вы можете варьировать эти параметры
-            n = 4;
-        }
-        else{
+            n = 5;
+        } else {
             n = Integer.parseInt(args[0]);
         }
 
