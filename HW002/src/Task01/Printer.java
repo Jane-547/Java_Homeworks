@@ -1,7 +1,5 @@
 package Task01;
 
-import java.util.HashMap;
-import java.util.Map;
 
 class Answer {
     public static StringBuilder answer(String QUERY, String PARAMS) {
@@ -9,75 +7,31 @@ class Answer {
         StringBuilder res = new StringBuilder();
         String task = PARAMS;
         String[] parts = task.split(",");
-        HashMap<String, String> fromJson = new HashMap<>();
 
         for (int i = 0; i < parts.length; i++) {
+            if (parts[i].contains("null")) parts[i] = "0:0";
             parts[i] = parts[i].replace("\"", "");
             parts[i] = parts[i].replace("{", "");
             parts[i] = parts[i].replace("}", "");
-            String[] subparts = parts[i].split(":");
-            fromJson.put(subparts[0], subparts[1]);
+            parts[i] = parts[i].replace(" ", "");
         }
-        System.out.println(fromJson);
 
-        String [] zapros = QUERY.split(" ");
+        String arr [][] = new String[parts.length][2];
 
-        switch (zapros[1]){
-
-            case "*":
-                for (Map.Entry<String, String> entry : fromJson.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-
-                    if (value != null && !value.contains("null")){
-                        res.append(key).append(" = ").append(value).append(" AND ");
-                    }
+        for (int j = 0; j < arr.length; j++) {
+            int flag = 0;
+            String [] temp = parts[j].split(":");
+            for (int k = 0; k < 2; k++) {
+                arr [j][k] = temp[k];
+                if (!arr[j][k].equals("0")) {
+                    if (k == 0) res.append(arr[j][k] + " = ");
+                    else res.append(arr[j][k]);
                 }
-                res.setLength(res.length() - 5);
-                break;
-
-            case "name":
-                for (Map.Entry<String, String> entry : fromJson.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-
-                    if (value != null && !value.contains("null") && key.contains("name")){
-                        res.append(key).append(" = ").append(value).append(" AND ");
-                    }
-                }
-                res.setLength(res.length() - 5);
-                break;
-
-            case "country":
-                for (Map.Entry<String, String> entry : fromJson.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-
-                    if (value != null && !value.contains("null") && key.contains("country")){
-                        res.append(key).append(" = ").append(value).append(" AND ");
-                    }
-                }
-                res.setLength(res.length() - 5);
-                break;
-
-
-            case "city":
-                for (Map.Entry<String, String> entry : fromJson.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-
-                    if (value != null && !value.contains("null") && key.contains("city")){
-                        res.append(key).append(" = ").append(value).append(" AND ");
-                    }
-                }
-                res.setLength(res.length() - 5);
-                break;
-
-            default:
-                System.out.println("Wrong parameter");
-                break;
+                else flag = 1;
+            }
+            if (j < arr.length -1) res.append(" AND ");
+            if (flag == 1) res.setLength(res.length() - 5);
         }
-        //res.setLength(res.length() - 5);
         return res;
     }
 }
