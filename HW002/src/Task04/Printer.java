@@ -12,10 +12,10 @@ import java.time.format.DateTimeFormatter;
 
 
 class Calculator {
+
     public int calculate(char op, int a, int b) {
         // Напишите свое решение ниже
         String logPath = "log.txt";
-        StringBuilder sb = new StringBuilder();
 
         int res = 0;
         switch (op) {
@@ -40,22 +40,21 @@ class Calculator {
                 System.out.println("Некорректный оператор: " + op);
                 break;
         }
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String data = now.format(formatter);
 
-        sb.append(data).append(" User entered the first operand = ").append(a).append(System.lineSeparator());
-        sb.append(data).append(" User entered the operation = ").append(op).append(System.lineSeparator());
-        sb.append(data).append(" User entered the second operand = ").append(b).append(System.lineSeparator());
-        sb.append(data).append(" Result is ").append(res).append(System.lineSeparator());
-        sb.append("\n");
-        String logLine = sb.toString();
-        writeToFile(logLine, logPath);
+        StringBuilder log = new StringBuilder();
+        log.append(logi(" User entered the first operand = ", Integer.toString(a)));
+        log.append(logi(" User entered the operation = ", Character.toString(op)));
+        log.append(logi(" User entered the second operand = ", Integer.toString(b)));
+        log.append(logi(" Result is ", Integer.toString(res)));
+        String mess = log.toString();
+
+        writeToFile(mess, logPath);
 
         return res;
     }
+
     static void writeToFile(String line, String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)){
+        try (FileWriter writer = new FileWriter(filePath)) {
             writer.write(line + System.lineSeparator());
             writer.flush();
         } catch (Exception e) {
@@ -63,7 +62,13 @@ class Calculator {
             System.out.println("Ошибка");
         }
     }
+    static String logi(String note, String value) {
 
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        StringBuilder sb = new StringBuilder(now.format(formatter) + note + value + System.lineSeparator());
+        return sb.toString();
+    }
 }
 
 // Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
