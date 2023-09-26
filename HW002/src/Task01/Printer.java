@@ -4,7 +4,7 @@ package Task01;
 class Answer {
     public static StringBuilder answer(String QUERY, String PARAMS) {
         // Напишите свое решение ниже
-        StringBuilder res = new StringBuilder();
+        StringBuilder res = new StringBuilder(QUERY);
         String task = PARAMS;
         String[] parts = task.split(",");
 
@@ -24,18 +24,17 @@ class Answer {
             for (int k = 0; k < 2; k++) {
                 arr [j][k] = temp[k];
                 if (!arr[j][k].equals("0")) {
-                    if (k == 0) res.append(arr[j][k] + " = ");
+                    if (k == 0) res.append(arr[j][k] + "='");
                     else res.append(arr[j][k]);
                 }
                 else flag = 1;
             }
-            if (j < arr.length -1) res.append(" AND ");
+            if (j < arr.length -1) res.append("' and ");
             if (flag == 1) res.setLength(res.length() - 5);
         }
         return res;
     }
 }
-
 
     // Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
     public class Printer {
