@@ -33,7 +33,7 @@ class BubbleSort {
                 }
             }
             Date date = new Date();
-            SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+            SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             sb.append(form.format(date)).append(" ").append(Arrays.toString(mas));
             sb.append("\n");
             String logLine = sb.toString();
