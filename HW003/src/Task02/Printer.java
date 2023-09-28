@@ -24,7 +24,7 @@ public class Printer{
 
         if (args.length == 0) {
             // При отправке кода на Выполнение, вы можете варьировать эти параметры
-            arr = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+            arr = new Integer[]{2, 4, 6, 8};
         }
         else{
             arr = Arrays.stream(args[0].split(", "))

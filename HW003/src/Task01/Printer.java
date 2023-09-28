@@ -1,5 +1,6 @@
 package Task01;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 class MergeSort {
@@ -64,6 +65,7 @@ public class Printer{
 
         MergeSort answer = new MergeSort();
         String itresume_res = Arrays.toString(answer.mergeSort(a));
+        System.out.print("a = " + Arrays.toString(a).replace("[", "{").replace("]", "}") + " -> ");
         System.out.println(itresume_res);
     }
 }
