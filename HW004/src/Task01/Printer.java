@@ -1,14 +1,11 @@
 package Task01;
 
 import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
 
 class LLTasks {
     public static LinkedList<Object> revert(LinkedList<Object> ll) {
         // Напишите свое решение ниже
         LinkedList<Object> res = new LinkedList<>();
-        ListIterator<Object> it = ll.listIterator();
         for (Object i : ll) {
             res.add(0, i);
         }
