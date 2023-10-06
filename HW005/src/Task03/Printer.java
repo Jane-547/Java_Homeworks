@@ -23,6 +23,7 @@ class HeapSort {
                 tree[i] = tree[max];
                 tree[max] =temp;
                 i--;
+                buildTree(tree, sortLength);
             }
         }
     }
@@ -48,7 +49,7 @@ public class Printer {
         int[] initArray;
 
         if (args.length == 0) {
-            initArray = new int[]{17, 32, 1, 4, 25, -17, 0, 3, 10, -7, 64, 1};
+            initArray = new int[]{17, 22, 14, 5, 28, 11, 7};
         } else {
             initArray = Arrays.stream(args[0].split(" ")).mapToInt(Integer::parseInt).toArray();
         }
