@@ -92,5 +92,10 @@ public class Notebook {
     Notebook notebook = (Notebook) obj;
     return memory == notebook.memory && hdd == notebook.hdd && os.equals(notebook.os) && colour.equals(notebook.colour);
   }
+
+  @Override
+  public int hashCode() {
+    return 3 * memory + 7 * hdd + 13 * os.hashCode() + 24 * colour.hashCode();
+  }
 }
 
