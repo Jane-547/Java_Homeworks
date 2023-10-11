@@ -23,7 +23,7 @@ public class Notebook {
   static Map <Integer, String> fillOss (Map <Integer, String> oss) {
     oss.put(1, "Windows 11");
     oss.put(2, "FreeDos");
-    oss.put(3, "Ubuntu");
+    oss.put(3, "no OS");
     return oss;
   }
 
@@ -48,10 +48,21 @@ public class Notebook {
     return q;
   }
 
-
   @Override
   public String toString() {
     return ("Memory: " + memory + "Gb, " + "HDD: " + hdd + "Gb, " + "Операционная система: " + os + ", Цвет: " + colour);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj){
+      return true;
+    }
+    if (!(obj instanceof Notebook)){
+      return false;
+    }
+    Notebook notebook = (Notebook) obj;
+    return memory == notebook.memory && hdd == notebook.hdd && os.equals(notebook.os) && colour.equals(notebook.colour);
   }
 }
 
