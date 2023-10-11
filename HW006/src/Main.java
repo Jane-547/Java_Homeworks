@@ -82,8 +82,17 @@ public class Main {
                         System.out.println("1 - Windows 11");
                         System.out.println("2 - FreeDos");
                         System.out.println("3 - без операционной системы");
-                        int choiceOs = sc.nextInt();
-                        userOs = oss.get(choiceOs);
+                        String indexOs = sc.nextLine();
+                        try {
+                            int choiceOs = Integer.parseInt(indexOs);
+                            if (choiceOs < 1 || choiceOs > 3) {
+                                choiceOs = 1;
+                                System.out.println("Неверное значение.");
+                            }
+                            else userOs = oss.get(choiceOs);
+                        } catch (NumberFormatException ex) {
+                            System.out.println("Вы ввели не число.");
+                        }
                         break;
 
                     case 4:
@@ -91,8 +100,17 @@ public class Main {
                         System.out.println("1 - black");
                         System.out.println("2 - silver");
                         System.out.println("3 - white");
-                        int choiceColour = sc.nextInt();
-                        userColour = colours.get(choiceColour);
+                        String indexColour = sc.nextLine();
+                        try {
+                            int choiceColour = Integer.parseInt(indexColour);
+                            if (choiceColour < 1 || choiceColour > 3) {
+                                choiceColour = 1;
+                                System.out.println("Неверное значение.");
+                            }
+                            else userColour = colours.get(choiceColour);
+                        } catch (NumberFormatException ex) {
+                            System.out.println("Вы ввели не число.");
+                        }
                         break;
 
                     case 5:
