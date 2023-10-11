@@ -7,6 +7,11 @@ public class Notebook {
   String os;
   String colour;
 
+  /**
+   * Заполнение справочника оперативной памяти
+   * @param memories
+   * @return Map
+   */
   static Map <Integer, Integer> fillMemories (Map <Integer, Integer> memories) {
     memories.put(1, 8);
     memories.put(2, 16);
@@ -14,12 +19,22 @@ public class Notebook {
     return memories;
   }
 
+  /**
+   * Заполнение справочника жестких дисков
+   * @param hdds
+   * @return
+   */
   static Map <Integer, Integer> fillHdds (Map <Integer, Integer> hdds) {
     hdds.put(1, 512);
     hdds.put(2, 1024);
     return hdds;
   }
 
+  /**
+   * Заполнение справочника операционных систем
+   * @param oss
+   * @return
+   */
   static Map <Integer, String> fillOss (Map <Integer, String> oss) {
     oss.put(1, "Windows 11");
     oss.put(2, "FreeDos");
@@ -27,6 +42,11 @@ public class Notebook {
     return oss;
   }
 
+  /**
+   * Заполнение справочника цветов
+   * @param colours
+   * @return
+   */
   static Map <Integer, String> fillColours (Map <Integer, String> colours) {
     colours.put(1, "black");
     colours.put(2, "silver");
@@ -34,6 +54,14 @@ public class Notebook {
     return colours;
   }
 
+  /**
+   * Генерация ноутбука со случайными характеристиками
+   * @param memories
+   * @param hdds
+   * @param oss
+   * @param colours
+   * @return Notebook
+   */
   static Notebook generateNotebook (Map <Integer, Integer> memories, Map <Integer, Integer> hdds, Map <Integer, String> oss, Map <Integer, String> colours) {
     Notebook q = new Notebook();
     Random random = new Random();

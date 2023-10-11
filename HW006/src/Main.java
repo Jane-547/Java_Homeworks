@@ -106,6 +106,7 @@ public class Main {
             }
         }
 
+        // Применяем выбранный пользователем фильтр
         for (Notebook book : allNotebooks) {
             if (memories.get(minMemory) <= book.memory && hdds.get(minHdd) <= book.hdd && (userOs.equals("0") || book.os.equals(userOs)) && (userColour.equals("0") || book.colour.equals(userColour))){
                 System.out.println(book);
