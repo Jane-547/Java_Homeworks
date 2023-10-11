@@ -16,6 +16,7 @@ public class Main {
         Notebook.fillColours(colours);
 
         Set <Notebook> allNotebooks = new HashSet<>();
+        for ()
         Notebook element = Notebook.generateNotebook(memories, hdds, oss, colours);
         System.out.println(element);
 

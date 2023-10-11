@@ -37,21 +37,31 @@ public class Notebook {
   static Notebook generateNotebook (Map <Integer, Integer> memories, Map <Integer, Integer> hdds, Map <Integer, String> oss, Map <Integer, String> colours) {
     Notebook q = new Notebook();
     Random random = new Random();
-    Object [] value = memories.values().toArray();
-
-    int index = random.nextInt(memories.size());
+    int index = random.nextInt(1, 4);
     q.memory = memories.get(index);
-    index = random.nextInt(hdds.size());
+    index = random.nextInt(1, 3);
     q.hdd = hdds.get(index);
-    index = random.nextInt(oss.size());
+    index = random.nextInt(1, 4);
     q.os = oss.get(index);
-    index = random.nextInt(colours.size());
+    index = random.nextInt(1, 4);
     q.colour = colours.get(index);
     return q;
   }
 
+  static Set<Notebook> randomList(Set<Notebook> list, int howMuch){
+    Set<Notebook> values = new HashSet<>();
+    for (Notebook notebook: list){
+      {
+        list.add(cat);
+      }
+    }
+    return list;
+  }
+
+
+
   @Override
   public String toString() {
-    return ("Memory: " + memory + "Gb, " + "HDD: " + hdd + "Gb, " + "Операционная система: " + os + "Цвет: " + colour);
+    return ("Memory: " + memory + "Gb, " + "HDD: " + hdd + "Gb, " + "Операционная система: " + os + ", Цвет: " + colour);
   }
 }
