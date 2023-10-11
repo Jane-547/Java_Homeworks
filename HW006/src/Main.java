@@ -20,7 +20,8 @@ public class Main {
         Set <Notebook> allNotebooks = new HashSet<>();
         for (int i = 1; i <= 15; i++) {
             Notebook element = Notebook.generateNotebook(memories, hdds, oss, colours);
-            System.out.println(element);
+            // Вывод полного списка убрала, т.к. в идеале должны быть показаны только выбранные пользователем по характеристикам
+            // System.out.println(element);
             allNotebooks.add(element);
         }
 
