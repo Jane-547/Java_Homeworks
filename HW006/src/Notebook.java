@@ -48,20 +48,10 @@ public class Notebook {
     return q;
   }
 
-  static Set<Notebook> randomList(Set<Notebook> list, int howMuch){
-    Set<Notebook> values = new HashSet<>();
-    for (Notebook notebook: list){
-      {
-        list.add(cat);
-      }
-    }
-    return list;
-  }
-
-
 
   @Override
   public String toString() {
     return ("Memory: " + memory + "Gb, " + "HDD: " + hdd + "Gb, " + "Операционная система: " + os + ", Цвет: " + colour);
   }
 }
+

@@ -7,18 +7,22 @@ public class Main {
         System.out.println("Добро пожаловать в магазин ноутбуков!");
 
         Map <Integer, Integer> memories = new HashMap<>();
-        Notebook.fillMemories(memories);
         Map <Integer, Integer> hdds = new HashMap<>();
-        Notebook.fillHdds(hdds);
         Map <Integer, String> oss = new HashMap<>();
-        Notebook.fillOss(oss);
         Map <Integer, String> colours = new HashMap <>();
+
+        Notebook.fillMemories(memories);
+        Notebook.fillHdds(hdds);
+        Notebook.fillOss(oss);
         Notebook.fillColours(colours);
 
         Set <Notebook> allNotebooks = new HashSet<>();
-        for ()
-        Notebook element = Notebook.generateNotebook(memories, hdds, oss, colours);
-        System.out.println(element);
+        for (int i = 0; i <= 10; i++) {
+            Notebook element = Notebook.generateNotebook(memories, hdds, oss, colours);
+            System.out.println(element);
+            allNotebooks.add(element);
+        }
+
 
         int d = 0;
         while (d == 0) {
@@ -35,10 +39,7 @@ public class Main {
                 point = Integer.parseInt(sc.nextLine());
                 switch (point) {
                     case 1:
-                        System.out.println(memories);
-                        System.out.println(hdds);
-                        System.out.println(oss);
-                        System.out.println(colours);
+
                         break;
 
                     case 2:
