@@ -16,8 +16,9 @@ public class Main {
         Notebook.fillOss(oss);
         Notebook.fillColours(colours);
 
+        // Создаем список ноутбуков со случайными характеристиками. Т.к. это Set, все ноутбуки разные.
         Set <Notebook> allNotebooks = new HashSet<>();
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 15; i++) {
             Notebook element = Notebook.generateNotebook(memories, hdds, oss, colours);
             System.out.println(element);
             allNotebooks.add(element);
